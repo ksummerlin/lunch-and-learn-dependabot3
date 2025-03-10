@@ -17,7 +17,7 @@ updates:
     # specify labels for all PRs under this ecosystem. Can also be defined at the group level
     labels:
       - "no-feature-env"
-
+      
     groups:
       nestjs:
         patterns:
@@ -31,9 +31,6 @@ updates:
         update-types:
           - "minor"
           - "patch"
-        labels:
-          - "no-"
-          - "triage-board"
       dev-dependencies:
         dependency-type: "development"
         update-types:
