@@ -7,5 +7,51 @@ version: 2
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
+
+    #Security PRs can be generated off schedule
     schedule:
-      interval: "daily"
+      interval: "weekly"
+      day: "sunday"   # Optional
+      time: "16:00"   # Optional, UTC unless timezone option is also used
+
+    # specify labels for all PRs under this ecosystem. Can also be defined at the group level
+    labels:
+      - "no-feature-env"
+
+    groups:
+      nestjs:
+        patterns:
+          - "@nestjs/*"
+        update-types:
+          - "minor"
+          - "patch"
+      # At a minimum, separate the prod and dev dependencies
+      prod-dependencies:
+        dependency-type: "production"
+        update-types:
+          - "minor"
+          - "patch"
+        labels:
+          - "no-"
+          - "triage-board"
+      dev-dependencies:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+
+  # keep your actions updated
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "16:00"
+
+  # keep your docker images updated
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "16:00"
