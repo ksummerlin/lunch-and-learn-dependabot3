@@ -10,9 +10,9 @@ updates:
 
     #Security PRs can be generated off schedule
     schedule:
-      interval: "weekly"
-      day: "sunday"   # Optional
-      time: "16:00"   # Optional, UTC unless timezone option is also used
+      interval: "daily"
+      # day: "sunday"   # Optional
+      # time: "16:00"   # Optional, UTC unless timezone option is also used
 
     # specify labels for all PRs under this ecosystem. Can also be defined at the group level
     labels:
