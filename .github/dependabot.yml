@@ -36,6 +36,11 @@ updates:
         update-types:
           - "minor"
           - "patch"
+      
+      #group any major updates into a new PR
+      major-updates:
+        update-types:
+          - "major"
 
   # keep your actions updated
   - package-ecosystem: "github-actions"
